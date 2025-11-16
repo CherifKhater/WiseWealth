@@ -1,0 +1,20 @@
+{
+  "mcpServers": {
+    "milvus": {
+      "command": "/usr/local/bin/uv",
+      "type": "stdio",
+      "args": [
+        "--directory",
+        "/Users/cherifkhater/mcp-servers/mcp-server-milvus",
+        "run",
+        "src/mcp_server_milvus/server.py",
+        "--milvus-uri",
+        "http://localhost:19530"
+      ],
+      "env": {
+        "MILVUS_URI": "http://localhost:19530",
+        "MILVUS_DB": "default"
+      }
+    }
+  }
+}

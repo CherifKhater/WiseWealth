@@ -1,0 +1,37 @@
+{
+  "name": "wisewealth",
+  "version": "0.1.0",
+  "description": "AI-powered personal finance management platform",
+  "private": true,
+  "scripts": {
+    "milvus:up": "docker-compose up -d && echo '✓ Milvus started at http://localhost:19530'",
+    "milvus:down": "docker-compose down && echo '✓ Milvus stopped'",
+    "milvus:restart": "npm run milvus:down && npm run milvus:up",
+    "milvus:logs": "docker logs -f milvus-standalone",
+    "milvus:status": "docker-compose ps",
+    "milvus:health": "curl -s http://localhost:9091/healthz && echo ' ✓ Milvus is healthy' || echo ' ✗ Milvus is not responding'",
+    "milvus:clean": "docker-compose down -v && echo '⚠ Warning: All Milvus data deleted'",
+    "milvus:backup": "tar -czf milvus-backup-$(date +%Y%m%d-%H%M%S).tar.gz volumes/ && echo '✓ Backup created'",
+    "index:code": "python3 scripts/indexing/index-codebase.py",
+    "index:docs": "python3 scripts/indexing/index-docs.py",
+    "index": "npm run index:code && npm run index:docs",
+    "index:verify": "python3 -c \"from pymilvus import connections, utility; connections.connect('default', host='localhost', port='19530'); print('Collections:', utility.list_collections()); connections.disconnect('default')\"",
+    "deps:install": "pip3 install pymilvus sentence-transformers",
+    "deps:check": "python3 -c \"import pymilvus, sentence_transformers; print('✓ All dependencies installed')\" || echo '✗ Missing dependencies. Run: npm run deps:install'",
+    "dev:setup": "npm run deps:install && npm run milvus:up && echo 'Waiting for Milvus to be ready...' && sleep 5 && npm run index",
+    "dev:start": "npm run milvus:status || npm run milvus:up",
+    "dev:stop": "npm run milvus:down",
+    "help": "echo '\n📚 WiseWealth Development Commands:\n' && grep -E '^    \"[^\"]+\":' package.json | sed 's/\"//g' | sed 's/,$//' | awk -F: '{printf \"  npm run %-20s # %s\\n\", $1, $2}' | head -20",
+    "help:milvus": "echo '\n📘 Milvus Quick Reference:\n\nStart:   npm run milvus:up\nStop:    npm run milvus:down\nIndex:   npm run index\nStatus:  npm run milvus:status\n\nFull guide: docs/setup/_MILVUS_MCP_GUIDE.md\n'"
+  },
+  "keywords": [
+    "finance",
+    "ai",
+    "wealth-management",
+    "personal-finance"
+  ],
+  "author": "",
+  "license": "UNLICENSED",
+  "devDependencies": {},
+  "dependencies": {}
+}

@@ -1,0 +1,85 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Testing
+coverage/
+*.lcov
+.nyc_output
+
+# Production builds
+dist/
+build/
+.next/
+out/
+
+# Environment variables
+.env
+.env*.local
+!.env.example
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE / Editor specific
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+*~
+
+# AI Assistant specific (keep tracked)
+# .cursorrules - KEEP (symlink to _PROJECT_CONTEXT.md)
+# .clinerules - KEEP (symlink to _PROJECT_CONTEXT.md)
+# _PROJECT_CONTEXT.md - KEEP (master context)
+# _CODEBASE_INDEX.md - KEEP (code index)
+# _INDEXING_STRATEGY.md - KEEP (indexing docs)
+# _SYNC_SUMMARY.md - KEEP (sync reference)
+# CLAUDE.md - KEEP (assistant-specific)
+# GEMINI.md - KEEP (assistant-specific)
+# AGENTS.md - KEEP (assistant-specific)
+
+# AI Assistant caches/indexes (DON'T track)
+.cursor/
+.continue/
+.aider*
+*.ai-cache
+_AUTO_INDEX.json         # Auto-generated, don't track
+_AUTO_INDEX.md           # Auto-generated, don't track
+
+# Milvus vector database (DON'T track)
+volumes/                 # Milvus data directory (Docker volumes)
+.volumes/                # Alternative volumes directory (if used)
+milvus-backup-*.tar.gz   # Database backups
+
+# Temporary files
+*.tmp
+.cache/
+.temp/
+
+# Database
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+
+# Misc
+.turbo
+.vercel
+*.tsbuildinfo
+next-env.d.ts
