@@ -1,0 +1,50 @@
+{
+  "mcpServers": {
+    "milvus": {
+      "command": "/Users/cherifkhater/Library/Python/3.9/bin/uv",
+      "args": [
+        "--directory",
+        "/Users/cherifkhater/mcp-servers/mcp-server-milvus",
+        "run",
+        "src/mcp_server_milvus/server.py",
+        "--milvus-uri",
+        "http://localhost:19530"
+      ],
+      "env": {
+        "MILVUS_URI": "http://localhost:19530",
+        "MILVUS_DB": "default"
+      }
+    },
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "@playwright/mcp@latest",
+        "--browser",
+        "chromium",
+        "--headless"
+      ]
+    },
+    "chrome-devtools": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "chrome-devtools-mcp@latest",
+        "--headless"
+      ]
+    },
+    "context7": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@upstash/context7-mcp"
+      ]
+    },
+    "sequential-thinking": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking"
+      ]
+    }
+  }
+}

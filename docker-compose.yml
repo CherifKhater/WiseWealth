@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   # Etcd - metadata storage for Milvus
   etcd:

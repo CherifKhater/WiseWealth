@@ -15,6 +15,41 @@
         "MILVUS_URI": "http://localhost:19530",
         "MILVUS_DB": "default"
       }
+    },
+    "playwright": {
+      "command": "npx",
+      "type": "stdio",
+      "args": [
+        "@playwright/mcp@latest",
+        "--browser",
+        "chromium",
+        "--headless"
+      ]
+    },
+    "chrome-devtools": {
+      "command": "npx",
+      "type": "stdio",
+      "args": [
+        "-y",
+        "chrome-devtools-mcp@latest",
+        "--headless"
+      ]
+    },
+    "context7": {
+      "command": "npx",
+      "type": "stdio",
+      "args": [
+        "-y",
+        "@upstash/context7-mcp"
+      ]
+    },
+    "sequential-thinking": {
+      "command": "npx",
+      "type": "stdio",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking"
+      ]
     }
   }
 }
