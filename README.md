@@ -66,8 +66,8 @@ For deep dives into the project's architecture and rules, refer to our internal 
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/cherifkhater/Wise-Wealth.git
-    cd Wise-Wealth
+    git clone https://github.com/cherifkhater/WiseWealth.git
+    cd WiseWealth
     ```
 
 2.  **Install dependencies:**
